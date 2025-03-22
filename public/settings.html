@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pofix</title>
+  <link rel="stylesheet" href="./style/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <script defer src="/__/firebase/11.4.0/firebase-app-compat.js"></script>
+  <script defer src="/__/firebase/11.4.0/firebase-auth-compat.js"></script>
+  <script defer src="/__/firebase/11.4.0/firebase-firestore-compat.js"></script>
+  <script defer src="/__/firebase/11.4.0/firebase-firestore-compat.js"></script>
+  <script defer src="/__/firebase/11.4.0/firebase-functions-compat.js"></script>
+  <script defer src="/__/firebase/11.4.0/firebase-messaging-compat.js"></script>
+  <script defer src="/__/firebase/11.4.0/firebase-storage-compat.js"></script>
+  <script defer src="/__/firebase/11.4.0/firebase-analytics-compat.js"></script>
+  <script defer src="/__/firebase/11.4.0/firebase-remote-config-compat.js"></script>
+  <script defer src="/__/firebase/11.4.0/firebase-performance-compat.js"></script>
+  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+  <center>
+    <div class="nav-bar">
+        <a href='home.html'><img class="logo" src="./assets/logo-normal.png" width="150"/></a>
+        <ul>
+            <a href='home.html'><li >Candidates</li></a>
+            <a href='workflow.html'><li>Workflows</li></a>
+            <a href='actions.html'><li>Actions</li></a>
+            <a href='settings.html'><li class="active">Settings</li></a>
+        </ul>
+        <img class="logout" src="./assets/exit.png" width="40" onclick="logout()"/>
+
+    </div>
+    </center>
+</head>
+
+<body>
+    <center style="display: flex; flex-direction: row;margin-top: 50px;">
+    <div style="width: 30%; text-align: right;padding-right: 20px;">
+        <ul class="settings-ul" style="list-style: none; font-size: 16px;margin-top:10px">
+            <li class="active roles">Roles</li>
+            <li class="tokens">Tokens</li>
+            <li class="hiring_mananger">Hiring Manager</li>
+        </ul>
+    </div>
+    <div id="roles" style="width: 40%; text-align: left; padding-left: 50px; ">
+        <div style="font-size: 32px; font-weight: 600;">Roles</div>
+        <div style="margin-top: 20px; font-size: 20px; font-weight: 500;">List of roles avaiable</div>
+        <div style="margin-top: 10px;">
+            <input id="new_role_input" style="font-family: 'Montserrat', sans-serif; height: 35px;text-indent: 10px;" type="text" placeholder="New role..."/>
+            <button onclick="addNewRole()" style="font-family: 'Montserrat', sans-serif; border:0px;margin-left: 20px; background-color: green; color: white; height: 40px; width: 150px;"><span class="material-symbols-outlined">
+                add
+                </span>Add Role</button>
+        </div>
+        <table style="width: 100%; margin-top:20px" id="roles_table">
+            <tr>
+                <th>Role</th>
+                <th>Workflow Mapped</th>
+                <th>Actions</th>
+            </tr>
+           
+        </table>
+    </div>
+
+    <div id="tokens" style="display:none;width: 40%; text-align: left; padding-left: 50px;">
+        <div style="font-size: 32px; font-weight: 600;">Tokens</div>
+        <div style="margin-top: 20px; font-size: 20px; font-weight: 500;">List of tokens</div>
+        <div style="margin-top: 10px;">
+            <input id="new_token_name" style="font-family: 'Montserrat', sans-serif; height: 35px;text-indent: 10px;" type="text" placeholder="New token name..."/>
+            <input id="new_token_value" style="font-family: 'Montserrat', sans-serif; height: 35px;text-indent: 10px;" type="text" placeholder="New token value..."/>
+            <button onclick="addNewToken()" style="font-family: 'Montserrat', sans-serif; border:0px;margin-left: 20px; background-color: green; color: white; height: 40px; width: 150px;"><span class="material-symbols-outlined" >
+                add
+                </span>Add Token</button>
+        </div>
+        <table style="width: 100%; margin-top:20px" id="tokens_table">
+            <tr>
+                <th>Name</th>
+                <th>Value</th>
+                <th>Actions</th>
+            </tr>
+        </table>
+    </div>
+
+    <div id="hiring_mananger" style="display:none;width: 40%; text-align: left; padding-left: 50px;">
+        <div style="font-size: 32px; font-weight: 600;">Hiring Managers</div>
+        <div style="margin-top: 20px; font-size: 20px; font-weight: 500;">List of HMs</div>
+        <div style="margin-top: 10px;">
+            <input id="new_HM_name" style="font-family: 'Montserrat', sans-serif; height: 35px;text-indent: 10px;" type="text" placeholder="New HM name..."/>
+            <input id="new_HM_email" style="font-family: 'Montserrat', sans-serif; height: 35px;text-indent: 10px;" type="text" placeholder="New HM value..."/>
+            <button onclick="addNewHM()" style="font-family: 'Montserrat', sans-serif; border:0px;margin-left: 20px; background-color: green; color: white; height: 40px; width: 150px;"><span class="material-symbols-outlined">
+                add
+                </span>Add Manager</button>
+        </div>
+        <table style="width: 100%; margin-top:20px" id="hm_table">
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Actions</th>
+            </tr>
+        </table>
+    </div>
+
+
+   
+    
+    </center>
+ 
+   
+  
+
+
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script src="./app.js"></script>
+<script src="./js/settings.js"></script>
+
+
+
+</html>

@@ -1,0 +1,190 @@
+body{
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin:0;
+    padding:0;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.login-overlay{
+    background : #0a0f1b;
+    width: 100vw;
+    height: 100vh;
+    margin:0;
+    padding: 0;
+}
+
+/* index */
+
+
+/* nav-bar */
+.nav-bar{
+    margin:0;
+    padding: 0;
+    height: 100px;
+    background-color: #0a0f1b;
+}
+
+.nav-bar ul{
+    margin:0;
+    padding: 0;
+}
+
+.nav-bar ul li.active{
+    color:white !important;
+    border-bottom: 4px solid #35ffea;
+}
+
+.nav-bar ul li{
+    display: inline-block;
+    color:rgb(214, 214, 214) !important;
+    margin:40px 40px;
+    font-weight: 500;
+    font-size: 18px;
+    padding-bottom: 35px;
+}
+
+.nav-bar ul li:hover{
+    color: #35ffea;
+    cursor:pointer;
+    border-bottom: 4px solid #35ffea;
+}
+
+.nav-bar .logo{
+    position: absolute;
+    left: 100px;
+    margin-top:20px;
+}
+
+.nav-bar .logout{
+    position: absolute;
+    right: 100px;
+    top:10px;
+    margin-top:20px;
+    cursor:pointer;
+}
+
+
+.toast{
+    background:rgb(34, 131, 34);
+    color:white;
+    position: fixed;
+    right: 0px;
+    bottom: 200px;
+    padding:20px 40px;
+    display: block;
+}
+
+
+.toast_error{
+    background-color: tomato;
+}
+
+
+
+/* settings */
+
+.settings-ul{
+    text-align: right;
+    justify-items: right;
+
+}
+
+.settings-ul li{
+    width: fit-content;
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-top:5px;
+    padding-bottom: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.settings-ul li.active{
+    background-color: rgb(219, 252, 219);
+    border-left: 2px solid green;
+    font-weight: 600;
+}
+
+table th{
+    border-bottom: 1px solid lightgrey;
+     padding-bottom: 8px;
+}
+table td{
+    padding: 8px 0px;
+}
+
+table td select{
+    width: 100px;
+    height: 30px;
+    border-color: lightgray;
+    border-radius: 5px;
+    font-family: "Montserrat", sans-serif;
+}
+
+.modal{
+    z-index: 10;
+    background: rgba(0,0,0,0.6);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top:0;
+    left: 0;
+}
+
+
+
+.modal .model_content{
+    width: fit-content;
+    position: relative;
+    padding: 10px 20px;
+    height: auto;
+    margin-top: 30vh;
+    border-radius: 10px;
+    border:1px solid lightgray;
+    text-align: left;
+    background: white;
+    padding-bottom: 40px;
+}
+
+
+
+.field_container{
+    margin-top:20px;
+}
+
+
+.field_container label{
+    display: block;
+    font-weight: 500;
+    font-size: 14px;
+    margin-bottom:5px;
+}
+
+.field_container input{
+    display: block;
+    height: 35px;
+    text-indent: 10px;
+    font-family: "Montserrat", sans-serif;
+    width: 250px;
+}
+
+.field_container select{
+    width: 250px;
+    font-family: "Montserrat", sans-serif;
+    text-indent: 10px;
+    height: 35px;
+}
+
+.addNewAction .field_container input, .updateAction .field_container input{
+    width: 100%;
+}
+
+.material-symbols-outlined{
+    vertical-align: middle;
+    margin-right: 10px;
+}
